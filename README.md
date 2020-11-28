@@ -86,9 +86,9 @@ I tested FMB's performance when bombing different mail providers once. Here's th
 
 Proton Mail: 99.4% into Inbox, 0.6% into Trash.
 
-Outlook Mail: 77.1% into Inbox, 22.9% into Trash.
+Gmail: 83.2% into Inbox, 16.8% into Trash.
 
-Gmail: 56% into Inbox, 38% into Categories, 6% into Trash.
+Outlook Mail: 77.1% into Inbox, 22.9% into Trash.
 
 163 Mail: 100% into Inbox, 0% into Trash.
 
