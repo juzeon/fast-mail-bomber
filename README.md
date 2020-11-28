@@ -1,6 +1,6 @@
 # Fast Mail Bomber via Mailman
 
-Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming tool written in php. FMB bombs the target's mailbox by sending bulk emails via the mailman services hosted by different providers.
+Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming tool written in php. FMB bombs the target's mailbox by sending bulk emails via mailman services hosted by different providers.
 
 **DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
 
@@ -13,7 +13,7 @@ Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming t
 
 - Automatically get mailman servers (providers) from Shodan or import from local files.
 - Multithreading bombing process.
-- Built-in providers & nodes list.
+- 150+ built-in providers & 3500+ built-in nodes list, providing efficiency.
 - Reliable exception handling mechanism.
 
 ## Installation
