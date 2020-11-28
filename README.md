@@ -72,3 +72,7 @@ php index.php start-bombing <email address>
 Successful and failed requests will be printed via console. Press CTRL+C to cease the process.
 
 **DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
+
+## License
+
+GPL v2.0
