@@ -38,6 +38,27 @@ foreach ($usingProviders as $listinfoUrl){
         }
         continue;
     }
+    try{
+        $testUrl=substr($listinfoUrl,0,strlen($listinfoUrl)-8).'subscribe/'.$m[1][0].'?language=en';
+        $testResp=$guzzle->get($testUrl);
+        $testHtml=$testResp->getBody();
+        if(strpos($testHtml,'no hidden token')){
+            $deadProvivers[]=$listinfoUrl;
+            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
+            println('Provider '.$listinfoUrl.' forces a CSRF check. Skipped & Added to dead list.');
+            continue;
+        }else if(strpos($testHtml,'captcha')){
+            $deadProvivers[]=$listinfoUrl;
+            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
+            println('Provider '.$listinfoUrl.' forces a captcha. Skipped & Added to dead list.');
+            continue;
+        }
+    }catch(RequestException $e){
+        $deadProvivers[]=$listinfoUrl;
+        file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
+        println('Provider '.$listinfoUrl.' cannot be accessed. Skipped & Added to dead list.');
+        continue;
+    }
     $singleAdded=0;
     foreach ($m[1] as $item){
         $url=substr($listinfoUrl,0,strlen($listinfoUrl)-8).'subscribe/'.$item;
