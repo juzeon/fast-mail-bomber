@@ -20,7 +20,7 @@ Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming t
 
 ### 1. Installing requirements
 
-FMB uses Guzzle. Please install required libraries using composer:
+FMB uses [Guzzle](https://github.com/guzzle/guzzle). Please install required libraries using composer:
 
 ```bash
 composer update
