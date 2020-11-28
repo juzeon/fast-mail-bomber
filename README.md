@@ -1,6 +1,13 @@
 # Fast Mail Bomber via Mailman
 
+![](https://badgen.net/badge/PHP/%3E=5.5/blue)
+![](https://badgen.net/badge/license/GPL%20v2.0/green)
+
 Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming tool written in php. FMB bombs the target's mailbox by sending bulk emails via mailman services hosted by different providers.
+
+![](fmb1.gif)
+
+![](fmb2.gif)
 
 **DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
 
