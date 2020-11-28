@@ -94,7 +94,9 @@ Gmail: 56% into Inbox, 38% into Categories, 6% into Trash.
 
 QQ Mail: 71% into Inbox, 29% into Trash.
 
-Zoho Mail: 0% into Inbox, 15.9% into Newsletter, 84.1% into Trash. (Best spam filter!)
+Zoho Mail: 0% into Inbox, 15.9% into Newsletter, 84.1% into Trash.
+
+Yandex Mail: 0% into Inbox, 100% into Trash.
 
 ## How to prevent being bombed
 
