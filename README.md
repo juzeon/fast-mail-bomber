@@ -86,6 +86,10 @@ I tested FMB's performance when bombing different mail providers once. Here's th
 
 Proton Mail: 99.4% into Inbox, 0.6% into Trash.
 
+Outlook Mail: 77.1% into Inbox, 22.9% into Trash.
+
+Gmail: 56% into Inbox, 38% into Categories, 6% into Trash.
+
 163 Mail: 100% into Inbox, 0% into Trash.
 
 QQ Mail: 71% into Inbox, 29% into Trash.
