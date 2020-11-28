@@ -89,5 +89,20 @@
     "http://cgi.di.uoa.gr/mailman/listinfo",
     "http://list.healthnet.org/mailman/listinfo",
     "http://lists.iloth.net/mailman/listinfo/iloth",
-    "http://list.specialistsofschools.org/mailman/listinfo/soslist_list.specialistsofschools.org"
+    "http://list.specialistsofschools.org/mailman/listinfo/soslist_list.specialistsofschools.org",
+    "http://lists.apple.com/mailman/listinfo",
+    "http://lists.centos.org/mailman/listinfo",
+    "http://lists.arin.net/mailman/listinfo",
+    "http://www.ogf.org/mailman/listinfo",
+    "http://lists.gnupg.org/mailman/listinfo",
+    "http://lists.umanitoba.ca/mailman/listinfo",
+    "http://lists.randombit.net/mailman/listinfo",
+    "http://lists.osgeo.org/mailman/listinfo",
+    "http://lists.drupal.org/mailman/listinfo",
+    "http://creativecommons.email/mailman/listinfo",
+    "http://lists.burngreave.net/mailman/listinfo",
+    "http://lists.iww.org.uk/mailman/listinfo",
+    "http://list.resiprocate.org/mailman/listinfo",
+    "http://lists.webarch.co.uk/mailman/listinfo",
+    "http://lists.croome.net/mailman/listinfo"
 ]
