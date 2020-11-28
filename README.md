@@ -84,19 +84,19 @@ Successful and failed requests will be printed via console. Press CTRL+C to ceas
 
 I tested FMB's performance when bombing different mail providers once. Here's the results:
 
-Proton Mail: 99.4% into Inbox, 0.6% into Trash.
+Proton Mail: 99.4% into Inbox, 0.6% into Spambox.
 
-Gmail: 83.2% into Inbox, 16.8% into Trash.
+Gmail: 83.2% into Inbox, 16.8% into Spambox.
 
-Outlook Mail: 77.1% into Inbox, 22.9% into Trash.
+Outlook Mail: 77.1% into Inbox, 22.9% into Spambox.
 
-163 Mail: 100% into Inbox, 0% into Trash.
+163 Mail: 100% into Inbox, 0% into Spambox.
 
-QQ Mail: 71% into Inbox, 29% into Trash.
+QQ Mail: 71% into Inbox, 29% into Spambox.
 
-Zoho Mail: 0% into Inbox, 15.9% into Newsletter, 84.1% into Trash.
+Zoho Mail: 0% into Inbox, 15.9% into Newsletter, 84.1% into Spambox.
 
-Yandex Mail: 0% into Inbox, 100% into Trash.
+Yandex Mail: 0% into Inbox, 100% into Spambox.
 
 ## How to prevent being bombed
 
