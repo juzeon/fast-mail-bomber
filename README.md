@@ -80,6 +80,26 @@ Successful and failed requests will be printed via console. Press CTRL+C to ceas
 
 **DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
 
+## Testing results
+
+I tested FMB's performance when bombing different mail providers once. Here's the results:
+
+Proton Mail: 99.4% into Inbox, 0.6% into Trash.
+
+163 Mail: 100% into Inbox, 0% into Trash.
+
+QQ Mail: 71% into Inbox, 29% into Trash.
+
+Zoho Mail: 0% into Inbox, 15.9% into Newsletter, 84.1% into Trash. (Best spam filter!)
+
+## How to prevent being bombed
+
+Concerning the mail template used in mailman's default settings, simply add the following text as one of your mailbox's filter rule:
+
+```
+Mailing list subscription confirmation notice for mailing list
+```
+
 ## License
 
 GPL v2.0
