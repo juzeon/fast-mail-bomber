@@ -16,16 +16,9 @@ try {
     println('The file you provided cannot be access');
     exit;
 }
-preg_match_all('/http[s]{0,1}:\/\/(.*?)\/mailman/',$text,$m);
-foreach ($m[0] as $item){
-    $url=$item.'/listinfo';
-    if(startsWith($url,'https://')){
-        $url='http://'.substr($url,8,strlen($url));
-    }
-    if(!in_array($url,$providers)){
-        $providers[]=$url;
-        $totalAdded++;
-    }
-}
+$importProviders=get_providers($text);
+$newProviders=array_diff($importProviders,$providers);
+$totalAdded=count($newProviders);
+$providers=array_merge($providers,$newProviders);
 file_put_contents(PROVIDERS_JSON,pretty_json_encode($providers));
 println('Completed. Total added: '.$totalAdded);

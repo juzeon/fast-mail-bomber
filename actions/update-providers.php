@@ -15,18 +15,21 @@ try{
     $resp=$guzzle->get('https://api.shodan.io/shodan/host/search?key='.SHODAN_API_KEY.'&query=mailman/listinfo');
     $json=json_decode($resp->getBody());
     foreach ($json->matches as $host){
-        preg_match('/[lL]ocation: (.*)/',$host->data,$m);
-        $url=trim(isset($m[1])?$m[1]:'');
-        if(startsWith($url,'https://')){
-            $url='http://'.substr($url,8,strlen($url));
+        $importProviders=get_providers($host->data);
+        if(isset($host->http) && isset($host->http->redirects)){
+            foreach ($host->http->redirects as $redirectObj){
+                if(isset($redirectObj->data)){
+                    $importProviders=array_merge($importProviders,get_providers($redirectObj->data));
+                }
+                if(isset($redirectObj->html)){
+                    $importProviders=array_merge($importProviders,get_providers($redirectObj->html));
+                }
+            }
         }
-        if(endsWith($url,'/')){
-            $url=substr($url,0,strlen($url)-1);
-        }
-        if(!in_array($url,$providers) && !empty($url)){
-            $providers[]=$url;
-            $totalAdded++;
-        }
+        $importProviders=array_unique($importProviders);
+        $newProviders=array_diff($importProviders,$providers);
+        $totalAdded+=count($newProviders);
+        $providers=array_merge($providers,$newProviders);
     }
     file_put_contents(PROVIDERS_JSON,pretty_json_encode($providers));
     println('Completed. Total added: '.$totalAdded);
