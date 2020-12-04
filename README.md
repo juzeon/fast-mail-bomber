@@ -3,6 +3,8 @@
 ![](https://badgen.net/badge/PHP/%3E=7.1/blue)
 ![](https://badgen.net/badge/license/GPL%20v2.0/green)
 
+English | [简体中文](README_zh-CN.md)
+
 Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming tool written in php. FMB bombs the target's mailbox by sending bulk emails via mailman services hosted by different providers.
 
 ![](fmb1.gif)
@@ -34,17 +36,17 @@ git clone https://github.com/juzeon/fast-mail-bomber.git
 cd fast-mail-bomber/
 ```
 
-### 2. Installing requirements
+### 2. Install requirements
 
 FMB uses [Guzzle](https://github.com/guzzle/guzzle). Please install required libraries using composer:
 
 ```bash
-composer update
+composer install
 ```
 
 If you don't have composer installed, please refer to <https://getcomposer.org/>
 
-### 3. Configuring
+### 3. Configure
 
 Copy `config.example.php` to `config.php` and edit it according to the annotations in the file to suit your needs.
 
@@ -109,7 +111,7 @@ Yandex Mail: 0% into Inbox, 100% into Spambox.
 
 ## How to prevent being bombed
 
-Concerning the mail template used in mailman's default settings, simply add the following text as one of your mailbox's filter rule:
+Because of the mail template used in mailman's default settings, simply add the following text as one of your mailbox's filter rule:
 
 ```
 Mailing list subscription confirmation notice for mailing list
