@@ -50,7 +50,7 @@ composer install
 
 复制 `config.example.php` 为 `config.php` ，用编辑器打开，根据里面的注释配置。
 
-## Usage
+## 使用
 
 **概念解释：**
 
