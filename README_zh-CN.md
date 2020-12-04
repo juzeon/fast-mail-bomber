@@ -68,7 +68,7 @@ php index.php update-providers
 php index.php import-providers <filepath>
 ```
 
-Duplicate providers will be automatically removed.
+重复的提供者会被自动移除。
 
 ### 2. 从提供者列表更新接口节点
 
