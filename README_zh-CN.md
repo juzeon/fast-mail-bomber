@@ -7,6 +7,10 @@
 
 基于Mailman的Fast Mail Bomber（FMB）是一个用PHP编写的电子邮件轰炸机脚本。FMB通过调用互联网上大量mailman服务接口来轰炸目标邮箱。
 
+网页版（仅供测试）：<https://www.skyju.cc/mailhzj.html>
+
+我博客上对这个项目的介绍：<https://blog.skyju.cc/post/introduce-the-new-fast-mail-bomber/>
+
 ![](fmb1.gif)
 
 ![](fmb2.gif)
