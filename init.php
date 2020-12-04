@@ -9,7 +9,7 @@ $guzzle=new Client([
 ]);
 define('HELP_TEXT',<<<EOF
 Usage:
-    php index.php update-providers|update-nodes|start-bombing|import-providers
+    php index.php update-providers|update-nodes|refine-nodes|start-bombing|import-providers
     Please refer to README.md for usage guidance.
 EOF
 );

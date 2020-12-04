@@ -75,6 +75,9 @@ Duplicate providers will be automatically removed.
 ```bash
 # Getting all subscription nodes that can be used for bombing from providers.
 php index.php update-nodes
+
+# Optional. Refine only one node from each provider, which will be extracted into a different file.
+php index.php refine-nodes
 ```
 
 When getting nodes, unavailable providers previously added will be automatically added to a dead list and will not be used.
@@ -84,7 +87,13 @@ Duplicate nodes will be automatically removed.
 ### 3. Starting to bomb
 
 ```bash
-php index.php start-bombing <email address>
+php index.php start-bombing [refined] <email address>
+
+# eg. Use all nodes to bomb an email:
+php index.php start-bombing email@example.com
+
+# eg. Use refined nodes to bomb an email:
+php index.php start-bombing refined email@example.com
 ```
 
 Successful and failed requests will be printed via console. Press CTRL+C to cease the process.

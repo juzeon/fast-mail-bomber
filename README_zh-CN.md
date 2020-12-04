@@ -75,6 +75,9 @@ php index.php import-providers <filepath>
 ```bash
 # 更新所有的接口节点
 php index.php update-nodes
+
+# 可选。每个提供者只精炼一个接口节点，写入一个和上面不同的文件中。
+php index.php refine-nodes
 ```
 
 当更新接口节点时，不可用的提供者地址会被自动添加到排除列表中并不再使用。
@@ -84,7 +87,13 @@ php index.php update-nodes
 ### 3. 开始轰炸
 
 ```bash
-php index.php start-bombing 邮件地址
+php index.php start-bombing [refined] <邮件地址>
+
+# 举例：使用全部接口节点轰炸一个邮箱：
+php index.php start-bombing email@example.com
+
+# 举例：仅使用精炼的接口节点轰炸一个邮箱：
+php index.php start-bombing refined email@example.com
 ```
 
 成功或失败的请求将会通过控制台输出。按CTRL+C停止程序。

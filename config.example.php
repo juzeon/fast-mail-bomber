@@ -28,4 +28,5 @@ define('TIMEOUT',30);
 define('PROVIDERS_JSON',__DIR__.'/data/providers.json');
 define('DEAD_PROVIDERS_JSON',__DIR__.'/data/dead_providers.json');
 define('NODES_JSON',__DIR__.'/data/nodes.json');
+define('REFINED_NODES_JSON',__DIR__.'/data/refined_nodes.json');
 define('TEST_DIR',__DIR__.'/test');

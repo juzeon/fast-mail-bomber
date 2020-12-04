@@ -73,3 +73,5 @@ foreach ($usingProviders as $listinfoUrl){
     println('Added from the aforementioned provider: '.$singleAdded);
 }
 println('Completed. Total added: '.$totalAdded);
+println('Start refining nodes...');
+include __DIR__.'/refine-nodes.php';

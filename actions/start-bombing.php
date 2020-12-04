@@ -1,19 +1,34 @@
 <?php
 use GuzzleHttp\Pool;
 use GuzzleHttp\Psr7\Request;
-if($argc!=3){
+if($argc<3){
     println('Please enter the email address of the target.');
     exit;
 }
-$email=$argv[2];
+if($argc==4 && $argv[2]=='refined'){
+    $email=$argv[3];
+    $useRefined=true;
+}else{
+    $email=$argv[2];
+    $useRefined=false;
+}
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     println('Please enter a valid email address.');
     exit;
 }
-if(!file_exists(NODES_JSON)){
-    println('Please run update-nodes first.');
+if($useRefined){
+    if(!file_exists(REFINED_NODES_JSON)){
+        println('Please run update-nodes and refine-nodes first.');
+        exit;
+    }
+    $nodes=json_decode(file_get_contents(REFINED_NODES_JSON));
+}else{
+    if(!file_exists(NODES_JSON)){
+        println('Please run update-nodes first.');
+        exit;
+    }
+    $nodes=json_decode(file_get_contents(NODES_JSON));
 }
-$nodes=json_decode(file_get_contents(NODES_JSON));
 shuffle($nodes);
 
 $requests = function ($total) {

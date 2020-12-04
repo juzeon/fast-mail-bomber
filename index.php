@@ -15,6 +15,9 @@ switch ($argv[1]){
     case 'update-nodes':
         require_once (__DIR__ . '/actions/update-nodes.php');
         break;
+    case 'refine-nodes':
+        require_once (__DIR__ . '/actions/refine-nodes.php');
+        break;
     case 'start-bombing':
         require_once (__DIR__ . '/actions/start-bombing.php');
         break;
