@@ -63,7 +63,7 @@ foreach ($usingProviders as $listinfoUrl){
     foreach ($m[1] as $item){
         $url=substr($listinfoUrl,0,strlen($listinfoUrl)-8).'subscribe/'.$item;
         if(!in_array($url,$nodes)){
-            println('Added node '.$url);
+            //println('Added node '.$url);
             $nodes[]=$url;
             $totalAdded++;
             $singleAdded++;

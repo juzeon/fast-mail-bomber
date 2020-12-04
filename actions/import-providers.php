@@ -16,7 +16,7 @@ try {
     println('The file you provided cannot be access');
     exit;
 }
-$importProviders=get_providers($text);
+$importProviders=parse_providers($text);
 $newProviders=array_diff($importProviders,$providers);
 $totalAdded=count($newProviders);
 $providers=array_merge($providers,$newProviders);

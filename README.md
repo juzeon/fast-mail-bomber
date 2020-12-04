@@ -22,7 +22,7 @@ Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming t
 
 - Automatically get mailman servers (providers) from Shodan or import from local files.
 - Multithreading bombing process.
-- 150+ built-in providers & 3500+ built-in nodes list, providing efficiency.
+- 200+ built-in providers & 4000+ built-in nodes list, providing efficiency.
 - Reliable exception handling mechanism.
 
 ## Installation

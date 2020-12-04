@@ -15,14 +15,14 @@ try{
     $resp=$guzzle->get('https://api.shodan.io/shodan/host/search?key='.SHODAN_API_KEY.'&query=mailman/listinfo');
     $json=json_decode($resp->getBody());
     foreach ($json->matches as $host){
-        $importProviders=get_providers($host->data);
+        $importProviders=parse_providers($host->data);
         if(isset($host->http) && isset($host->http->redirects)){
             foreach ($host->http->redirects as $redirectObj){
                 if(isset($redirectObj->data)){
-                    $importProviders=array_merge($importProviders,get_providers($redirectObj->data));
+                    $importProviders=array_merge($importProviders,parse_providers($redirectObj->data));
                 }
                 if(isset($redirectObj->html)){
-                    $importProviders=array_merge($importProviders,get_providers($redirectObj->html));
+                    $importProviders=array_merge($importProviders,parse_providers($redirectObj->html));
                 }
             }
         }

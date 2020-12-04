@@ -39,7 +39,7 @@ function generate_password($length = 8) {
     return $password;
 
 }
-function get_providers($haystack){
+function parse_providers($haystack){
     preg_match_all('/http[s]{0,1}:\/\/([A-Za-z0-9\-_\/:\.]*?)\/mailman/',$haystack,$m);
     $providers=[];
     foreach ($m[0] as $item){

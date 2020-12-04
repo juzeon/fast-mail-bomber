@@ -41,7 +41,7 @@ $pool = new Pool($guzzle, $requests(USE_NODES_COUNT), [
         if(strpos($html,'is banned')){
             $totalFailure++;
             println("[SUCCESS:{$totalSuccess}, FAILURE:{$totalFailure}]".'Request with index '.$index.' failed. Reason: the target email address is banned from the server.');
-        }else if(strpos($html,'be acted upon')){
+        }else if(strpos($html,'be acted upon') || strpos($html,'Confirmation from your email')){
             $totalSuccess++;
             println("[SUCCESS:{$totalSuccess}, FAILURE:{$totalFailure}]".'Request with index '.$index.' succeeded.');
         }else if(strpos($html,'no hidden token')){
