@@ -16,7 +16,9 @@ define('CONCURRENCY',20);
 define('SHODAN_API_KEY','');
 
 // The proxy for all http requests to use. Note that in a bombing action your ip address will be disclosed to the target. Please ensure that you hide your real ip address properly.
+// eg. 127.0.0.1:7890
 // 对所有HTTP连接使用的代理配置。注意：在轰炸时，访问接口节点的ip地址会被暴露写到邮件里，所以请务必使用代理
+// 例如：127.0.0.1:7890
 define('PROXY','');
 
 // The timeout value for all http requests.
