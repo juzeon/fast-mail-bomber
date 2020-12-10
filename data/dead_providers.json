@@ -133,5 +133,13 @@
     "http://list.bowdoin.edu/mailman/listinfo",
     "http://osflash.org/mailman/listinfo",
     "http://130.113.226.200/mailman/listinfo",
-    "http://193.37.152.232/mailman/listinfo"
+    "http://193.37.152.232/mailman/listinfo",
+    "http://cvl-lists.org/mailman/listinfo",
+    "http://141.45.70.34/mailman/listinfo",
+    "http://140.247.64.54/mailman/listinfo",
+    "http://mailman.usdel.org/cgi-bin/mailman/listinfo",
+    "http://liste.accomazzi.net/mailman/listinfo",
+    "http://lists.library.ohio.gov/mailman/listinfo",
+    "http://lists.mediagoblin.org/mailman/listinfo",
+    "http://lists.wikimedia.org/mailman/listinfo"
 ]
