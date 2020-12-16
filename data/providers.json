@@ -222,5 +222,10 @@
     "http://140.247.64.54/mailman/listinfo",
     "http://141.45.70.34/mailman/listinfo",
     "http://cvl-lists.org/mailman/listinfo",
-    "http://listas.floss-pa.net/mailman/listinfo"
+    "http://listas.floss-pa.net/mailman/listinfo",
+    "http://listserv.hants.gov.uk/mailman/listinfo",
+    "http://131.183.12.14/mailman/listinfo",
+    "http://lists.mncap.org/mailman/listinfo",
+    "http://mailman.med.usyd.edu.au/mailman/listinfo",
+    "http://lists.osgeo.org/cgi-bin/mailman/listinfo"
 ]

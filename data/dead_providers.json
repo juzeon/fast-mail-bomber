@@ -141,5 +141,9 @@
     "http://liste.accomazzi.net/mailman/listinfo",
     "http://lists.library.ohio.gov/mailman/listinfo",
     "http://lists.mediagoblin.org/mailman/listinfo",
-    "http://lists.wikimedia.org/mailman/listinfo"
+    "http://lists.wikimedia.org/mailman/listinfo",
+    "http://lists.osgeo.org/cgi-bin/mailman/listinfo",
+    "http://mailman.med.usyd.edu.au/mailman/listinfo",
+    "http://lists.mncap.org/mailman/listinfo",
+    "http://131.183.12.14/mailman/listinfo"
 ]
