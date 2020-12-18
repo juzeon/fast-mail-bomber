@@ -6,7 +6,7 @@ class ZoomEye extends Api {
         global $guzzle;
         $totalProviders = [];
         try {
-            $resp = $guzzle->get('https://api.zoomeye.org/host/search?query=mailman/listinfo&page=' . $page, [
+            $resp = $guzzle->get('https://api.zoomeye.org/host/search?query=mailman/listinfo&sub_type=v4&page=' . $page, [
                 'headers' => [
                     'API-KEY' => $this->apiKey
                 ]
