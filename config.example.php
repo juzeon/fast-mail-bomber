@@ -11,9 +11,17 @@ define('USE_NODES_COUNT',INF);
 // 轰炸时HTTP最大并发连接数，确保数值适合您的网络环境
 define('CONCURRENCY',20);
 
-// The Shodan api key to use when updating providers. Shodan provides free api access for the first 100 results: https://account.shodan.io/
-// Shodan api key，在更新提供者的时候用。申请地址：https://account.shodan.io/
+// (Optional) The Shodan api key to use when updating providers. Shodan provides free api access for the first 100 results: https://account.shodan.io/
+// （可选）Shodan api key，在更新提供者的时候用。申请地址：https://account.shodan.io/
 define('SHODAN_API_KEY','');
+
+// (Optional) The ZoomEye api key to use when updating providers. ZoomEye provides free api access 10,000 results per month: https://www.zoomeye.org/profile/info
+// （可选）ZoomEye api key，在更新提供者的时候用。地址：https://www.zoomeye.org/profile/info
+define('ZOOMEYE_API_KEY','');
+
+// Page limit of ZoomEye when updating providers. Set to INF to fetch all pages until the limit of api is reached.
+// 更新ZoomEye时候限制的页面数量，INF为不限制，直到配额用完
+define('ZOOMEYE_PAGE_LIMIT',10);
 
 // The proxy for all http requests to use. Note that in a bombing action your ip address will be disclosed to the target. Please ensure that you hide your real ip address properly.
 // eg. 127.0.0.1:7890

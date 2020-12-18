@@ -1,6 +1,7 @@
 <?php
 require_once (__DIR__.'/vendor/autoload.php');
 require_once (__DIR__.'/libraries/includes.php');
+require_dir(__DIR__.'/libraries/providers/');
 use GuzzleHttp\Client;
 $guzzle=new Client([
     'proxy'=>PROXY,
