@@ -11,6 +11,8 @@
 
 我博客上对这个项目的介绍：<https://blog.skyju.cc/post/introduce-the-new-fast-mail-bomber/>
 
+十分新手向的使用教程：<https://blog.skyju.cc/post/fast-mail-bomber-noob-guidance/>
+
 ![](fmb1.gif)
 
 ![](fmb2.gif)
