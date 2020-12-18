@@ -70,7 +70,7 @@ foreach ($usingProviders as $listinfoUrl){
         }
     }
     file_put_contents(NODES_JSON,pretty_json_encode($nodes));
-    println('Added from the aforementioned provider: '.$singleAdded);
+    println('Added nodes from the aforementioned provider: '.$singleAdded);
 }
 println('Completed. Total added: '.$totalAdded);
 println('Start refining nodes...');

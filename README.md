@@ -36,17 +36,7 @@ git clone https://github.com/juzeon/fast-mail-bomber.git
 cd fast-mail-bomber/
 ```
 
-### 2. Install requirements
-
-FMB uses [Guzzle](https://github.com/guzzle/guzzle). Please install required libraries using composer:
-
-```bash
-composer install
-```
-
-If you don't have composer installed, please refer to <https://getcomposer.org/>
-
-### 3. Configure
+### 2. Configure
 
 Copy `config.example.php` to `config.php` and edit it according to the annotations in the file to suit your needs.
 

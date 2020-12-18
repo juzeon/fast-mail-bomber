@@ -40,17 +40,7 @@ git clone https://github.com/juzeon/fast-mail-bomber.git
 cd fast-mail-bomber/
 ```
 
-### 2. 安装依赖
-
-FMB使用[Guzzle](https://github.com/guzzle/guzzle)。请使用composer安装依赖。
-
-```bash
-composer install
-```
-
-如果您未安装composer，请访问：<https://getcomposer.org/>
-
-### 3. 配置
+### 2. 配置
 
 复制 `config.example.php` 为 `config.php` ，用编辑器打开，根据里面的注释配置。
 
