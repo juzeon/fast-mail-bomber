@@ -22,7 +22,7 @@ Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming t
 
 - Automatically get mailman servers (providers) from Shodan or import from local files.
 - Multithreading bombing process.
-- 200+ built-in providers & 4000+ built-in nodes list, providing efficiency.
+- 900+ built-in providers & 50,000+ built-in nodes list, providing efficiency.
 - Reliable exception handling mechanism.
 
 ## Installation
@@ -48,10 +48,10 @@ Provider: A mailman server, which usually contains a `listinfo` page listing all
 
 Node: A subscription node on a mailman server, which can be used to send subscription confirmation emails to a target. eg. `http://lists.centos.org/mailman/subscribe/centos`
 
-### 1. Updating Providers from Shodan or a local file
+### 1. (Optional) Updating Providers from Shodan & ZoomEye or a local file
 
 ```bash
-# Updating providers from Shodan. Set a Shodan api key in config.php first.
+# Updating providers from Shodan & ZoomEye. Set a Shodan and/or ZoomEye api key in config.php first.
 php index.php update-providers
 
 # Importing providers from a local file. There's no restriction on file format/pattern since FMB uses RegExp to match provider urls.
@@ -60,7 +60,7 @@ php index.php import-providers <filepath>
 
 Duplicate providers will be automatically removed.
 
-### 2. Updating Nodes from the existing provider list
+### 2. (Optional) Updating Nodes from the existing provider list
 
 ```bash
 # Getting all subscription nodes that can be used for bombing from providers.
@@ -73,6 +73,8 @@ php index.php refine-nodes
 When getting nodes, unavailable providers previously added will be automatically added to a dead list and will not be used.
 
 Duplicate nodes will be automatically removed.
+
+You can also use built-in providers and nodes and skip this step.
 
 ### 3. Starting to bomb
 

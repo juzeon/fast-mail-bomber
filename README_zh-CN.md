@@ -28,7 +28,7 @@
 
 - 自动从Shodan获取mailman接口地址，或者从本地文件导入
 - 多线程轰炸
-- 200+内置提供者，4000+内置接口节点，高效的即开即用
+- 900+内置提供者，50,000+内置接口节点，高效的即开即用
 - 完善的异常处理机制
 
 ## 安装
@@ -54,10 +54,10 @@ Provider（提供者）: 指一个mailman服务器，通常包括一个 `listinf
 
 Node（接口节点）: 指mailman服务器上的一个订阅接口地址，可以被直接调用来给目标邮箱发送确认订阅的邮件。例如： `http://lists.centos.org/mailman/subscribe/centos`
 
-### 1. 从Shodan或本地文件更新提供者
+### 1. （可选）从Shodan和ZoomEye或本地文件更新提供者
 
 ```bash
-# 从Shodan更新提供者，请先配置Shodan api key。
+# 从Shodan和ZoomEye更新提供者，请先配置Shodan api key或者ZoomEye api key，也可两者都配置。
 php index.php update-providers
 
 # 从一个本地文件导入提供者。提供者URL地址在文件中的格式没有要求，因为FMB使用正则来匹配正确的地址。
@@ -66,7 +66,7 @@ php index.php import-providers <filepath>
 
 重复的提供者会被自动移除。
 
-### 2. 从提供者列表更新接口节点
+### 2. （可选）从提供者列表更新接口节点
 
 ```bash
 # 更新所有的接口节点
@@ -79,6 +79,8 @@ php index.php refine-nodes
 当更新接口节点时，不可用的提供者地址会被自动添加到排除列表中并不再使用。
 
 重复的接口节点会被自动移除。
+
+您可以直接使用内置提供者和节点，跳过这一步。
 
 ### 3. 开始轰炸
 

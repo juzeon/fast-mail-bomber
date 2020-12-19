@@ -5,11 +5,11 @@ define('PRESERVE_EMPTY_PROVIDERS',false);
 
 // The total number of nodes to use in a bombing action. Set to INF to use all nodes.
 // 一次轰炸时所用的最大接口节点数量，设置为INF表示不限制
-define('USE_NODES_COUNT',INF);
+define('USE_NODES_COUNT',5000);
 
 // The count of http connection threads to use in a bombing action. Ensure it suits your network environment.
 // 轰炸时HTTP最大并发连接数，确保数值适合您的网络环境
-define('CONCURRENCY',20);
+define('CONCURRENCY',50);
 
 // (Optional) The Shodan api key to use when updating providers. Shodan provides free api access for the first 100 results: https://account.shodan.io/
 // （可选）Shodan api key，在更新提供者的时候用。申请地址：https://account.shodan.io/

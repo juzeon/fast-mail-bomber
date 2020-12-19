@@ -21,7 +21,7 @@ foreach ($usingProviders as $listinfoUrl){
     $html=null;
     try{
         $html=$guzzle->get($listinfoUrl)->getBody();
-    }catch (RequestException $e){
+    }catch (Exception $e){
         $deadProvivers[]=$listinfoUrl;
         file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
         println('Provider '.$listinfoUrl.' cannot be accessed. Skipped & Added to dead list.');
@@ -53,7 +53,7 @@ foreach ($usingProviders as $listinfoUrl){
             println('Provider '.$listinfoUrl.' forces a captcha. Skipped & Added to dead list.');
             continue;
         }
-    }catch(RequestException $e){
+    }catch(Exception $e){
         $deadProvivers[]=$listinfoUrl;
         file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
         println('Provider '.$listinfoUrl.' cannot be accessed. Skipped & Added to dead list.');
