@@ -21,7 +21,7 @@ define('ZOOMEYE_API_KEY','');
 
 // Page limit of ZoomEye when updating providers. Set to INF to fetch all pages until the limit of api is reached.
 // 更新ZoomEye时候限制的页面数量，INF为不限制，直到配额用完
-define('ZOOMEYE_PAGE_LIMIT',10);
+define('ZOOMEYE_PAGE_LIMIT',50);
 
 // The proxy for all http requests to use. Note that in a bombing action your ip address will be disclosed to the target. Please ensure that you hide your real ip address properly.
 // eg. 127.0.0.1:7890
