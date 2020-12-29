@@ -24,9 +24,15 @@ define('ZOOMEYE_API_KEY','');
 define('ZOOMEYE_PAGE_LIMIT',50);
 
 // The proxy for all http requests to use. Note that in a bombing action your ip address will be disclosed to the target. Please ensure that you hide your real ip address properly.
-// eg. 127.0.0.1:7890
+// Example #1 for HTTP proxy:
+// 127.0.0.1:7890
+// Example #2 for socks5 proxy (Yes, 'socks5h', not 'socks5'):
+// socks5h://127.0.0.1:10808
 // 对所有HTTP连接使用的代理配置。注意：在轰炸时，访问接口节点的ip地址会被暴露写到邮件里，所以请务必使用代理
-// 例如：127.0.0.1:7890
+// 例子1：如果是HTTP代理：
+// 127.0.0.1:7890
+// 例子2：如果是socks5代理（要写socks5h，不是socks5）：
+// socks5h://127.0.0.1:10808
 define('PROXY','');
 
 // The timeout value for all http requests.
