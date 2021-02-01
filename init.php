@@ -4,6 +4,7 @@ require_once (__DIR__.'/libraries/includes.php');
 require_once (__DIR__.'/libraries/providers/Api.php');
 require_once (__DIR__.'/libraries/providers/ZoomEye.php');
 require_once (__DIR__.'/libraries/providers/Shodan.php');
+ini_set('memory_limit', '-1');
 use GuzzleHttp\Client;
 $guzzle=new Client([
     'proxy'=>PROXY,
