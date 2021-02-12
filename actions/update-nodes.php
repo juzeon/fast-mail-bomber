@@ -16,62 +16,75 @@ if(file_exists(NODES_JSON)){
     $nodes=json_decode(file_get_contents(NODES_JSON));
 }
 $totalAdded=0;
+$promises=[];
 foreach ($usingProviders as $listinfoUrl){
-    println('Processing provider '.$listinfoUrl);
-    $html=null;
-    try{
-        $html=$guzzle->get($listinfoUrl)->getBody();
-    }catch (Exception $e){
+    if (filter_var($listinfoUrl,FILTER_VALIDATE_URL) === FALSE) {
         $deadProviders[]=$listinfoUrl;
         file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
-        println('Provider '.$listinfoUrl.' cannot be accessed. Skipped & Added to dead list.');
+        println('Provider '.$listinfoUrl.' is not a valid url. Skipped & Added to dead list.');
         continue;
     }
-    preg_match_all('/href="listinfo\/(.*?)"/',$html,$m);
-    if(empty($m[1])){
-        if(PRESERVE_EMPTY_PROVIDERS){
-            println('Provider '.$listinfoUrl.' returned an empty list. Preserved according to config.');
-        }else{
-            $deadProviders[]=$listinfoUrl;
-            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
-            println('Provider '.$listinfoUrl.' returned an empty list. Added to dead list according to config.');
-        }
-        continue;
-    }
-    try{
-        $testUrl=substr($listinfoUrl,0,strlen($listinfoUrl)-8).'subscribe/'.$m[1][0].'?language=en';
-        $testResp=$guzzle->get($testUrl);
-        $testHtml=$testResp->getBody();
-        if(strpos($testHtml,'no hidden token')){
-            $deadProviders[]=$listinfoUrl;
-            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
-            println('Provider '.$listinfoUrl.' forces a CSRF check. Skipped & Added to dead list.');
-            continue;
-        }else if(strpos($testHtml,'captcha')){
-            $deadProviders[]=$listinfoUrl;
-            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
-            println('Provider '.$listinfoUrl.' forces a captcha. Skipped & Added to dead list.');
-            continue;
-        }
-    }catch(Exception $e){
-        $deadProviders[]=$listinfoUrl;
-        file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
-        println('Provider '.$listinfoUrl.' cannot be accessed. Skipped & Added to dead list.');
-        continue;
-    }
-    $singleAdded=0;
-    foreach ($m[1] as $item){
-        $url=substr($listinfoUrl,0,strlen($listinfoUrl)-8).'subscribe/'.$item;
-        if(!in_array($url,$nodes)){
-            //println('Added node '.$url);
-            $nodes[]=$url;
-            $totalAdded++;
-            $singleAdded++;
-        }
-    }
-    file_put_contents(NODES_JSON,pretty_json_encode($nodes));
-    println('Added nodes from the aforementioned provider: '.$singleAdded);
+    $promises[]=function () use ($guzzle, &$nodes, $listinfoUrl, &$deadProviders, &$totalAdded){
+        $promise=$guzzle->getAsync($listinfoUrl);
+        $promise->then(function ($resp) use ($guzzle, &$nodes, $listinfoUrl, &$deadProviders, &$totalAdded){
+            $html = $resp->getBody();
+            println('Hit ' . $listinfoUrl);
+            preg_match_all('/href="listinfo\/(.*?)"/', $html, $m);
+            if (empty($m[1])) {
+                if (PRESERVE_EMPTY_PROVIDERS) {
+                    println('Provider ' . $listinfoUrl . ' returned an empty list. Preserved according to config.');
+                } else {
+                    $deadProviders[] = $listinfoUrl;
+                    file_put_contents(DEAD_PROVIDERS_JSON, pretty_json_encode($deadProviders));
+                    println('Provider ' . $listinfoUrl . ' returned an empty list. Added to dead list according to config.');
+                }
+                return;
+            }
+            $testUrl = substr($listinfoUrl, 0, strlen($listinfoUrl) - 8) . 'subscribe/' . $m[1][0] . '?language=en';
+            $promise2=$guzzle->getAsync($testUrl);
+            $promise2->then(function ($resp2) use ($guzzle, &$nodes, $listinfoUrl, &$deadProviders, $m, &$totalAdded, $testUrl) {
+                $testHtml = $resp2->getBody();
+                println('Hit ' . $testUrl);
+                if (strpos($testHtml, 'no hidden token')) {
+                    $deadProviders[] = $listinfoUrl;
+                    file_put_contents(DEAD_PROVIDERS_JSON, pretty_json_encode($deadProviders));
+                    println('Provider ' . $listinfoUrl . ' forces a CSRF check. Skipped & Added to dead list.');
+                    return;
+                } else if (strpos($testHtml, 'captcha')) {
+                    $deadProviders[] = $listinfoUrl;
+                    file_put_contents(DEAD_PROVIDERS_JSON, pretty_json_encode($deadProviders));
+                    println('Provider ' . $listinfoUrl . ' forces a captcha. Skipped & Added to dead list.');
+                    return;
+                }
+                $singleAdded = 0;
+                foreach ($m[1] as $item) {
+                    $url = substr($listinfoUrl, 0, strlen($listinfoUrl) - 8) . 'subscribe/' . $item;
+                    if (!in_array($url, $nodes)) {
+                        //println('Added node '.$url);
+                        $nodes[] = $url;
+                        $totalAdded++;
+                        $singleAdded++;
+                    }
+                }
+                file_put_contents(NODES_JSON, pretty_json_encode($nodes));
+                println('Added ' . $singleAdded . ' nodes from provider ' . $listinfoUrl);
+                return;
+            });
+            return $promise2;
+        });
+        return $promise;
+    };
 }
+$pool=new \GuzzleHttp\Pool($guzzle,$promises,[
+    'concurrency'=>20,
+    'rejected'=>function($reason,$index) use ($usingProviders,&$deadProviders){
+        $deadProviders[]=$usingProviders[$index];
+        file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
+        println('Provider '.$usingProviders[$index].' cannot be accessed. Skipped & Added to dead list.');
+    }
+]);
+$pool->promise()->wait();
+
 println('Completed. Total added: '.$totalAdded);
 println('Start refining nodes...');
 include __DIR__.'/refine-nodes.php';
