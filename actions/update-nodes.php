@@ -1,15 +1,15 @@
 <?php
 use GuzzleHttp\Exception\RequestException;
-$deadProvivers=[];
+$deadProviders=[];
 if(file_exists(DEAD_PROVIDERS_JSON)){
-    $deadProvivers=json_decode(file_get_contents(DEAD_PROVIDERS_JSON));
+    $deadProviders=json_decode(file_get_contents(DEAD_PROVIDERS_JSON));
 }
 if(!file_exists(PROVIDERS_JSON)){
     println('Please run update-providers first.');
     exit;
 }
 $providers=json_decode(file_get_contents(PROVIDERS_JSON));
-$usingProviders=array_diff($providers,$deadProvivers);
+$usingProviders=array_diff($providers,$deadProviders);
 $usingProviders=array_reverse($usingProviders);
 $nodes=[];
 if(file_exists(NODES_JSON)){
@@ -22,8 +22,8 @@ foreach ($usingProviders as $listinfoUrl){
     try{
         $html=$guzzle->get($listinfoUrl)->getBody();
     }catch (Exception $e){
-        $deadProvivers[]=$listinfoUrl;
-        file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
+        $deadProviders[]=$listinfoUrl;
+        file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
         println('Provider '.$listinfoUrl.' cannot be accessed. Skipped & Added to dead list.');
         continue;
     }
@@ -32,8 +32,8 @@ foreach ($usingProviders as $listinfoUrl){
         if(PRESERVE_EMPTY_PROVIDERS){
             println('Provider '.$listinfoUrl.' returned an empty list. Preserved according to config.');
         }else{
-            $deadProvivers[]=$listinfoUrl;
-            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
+            $deadProviders[]=$listinfoUrl;
+            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
             println('Provider '.$listinfoUrl.' returned an empty list. Added to dead list according to config.');
         }
         continue;
@@ -43,19 +43,19 @@ foreach ($usingProviders as $listinfoUrl){
         $testResp=$guzzle->get($testUrl);
         $testHtml=$testResp->getBody();
         if(strpos($testHtml,'no hidden token')){
-            $deadProvivers[]=$listinfoUrl;
-            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
+            $deadProviders[]=$listinfoUrl;
+            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
             println('Provider '.$listinfoUrl.' forces a CSRF check. Skipped & Added to dead list.');
             continue;
         }else if(strpos($testHtml,'captcha')){
-            $deadProvivers[]=$listinfoUrl;
-            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
+            $deadProviders[]=$listinfoUrl;
+            file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
             println('Provider '.$listinfoUrl.' forces a captcha. Skipped & Added to dead list.');
             continue;
         }
     }catch(Exception $e){
-        $deadProvivers[]=$listinfoUrl;
-        file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProvivers));
+        $deadProviders[]=$listinfoUrl;
+        file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
         println('Provider '.$listinfoUrl.' cannot be accessed. Skipped & Added to dead list.');
         continue;
     }
