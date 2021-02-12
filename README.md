@@ -1,6 +1,6 @@
 # Fast Mail Bomber via Mailman
 
-![](https://badgen.net/badge/PHP/%3E=7.1/blue)
+![](https://badgen.net/badge/PHP/%3E=7.2/blue)
 ![](https://badgen.net/badge/license/GPL%20v2.0/green)
 
 English | [简体中文](README_zh-CN.md)
