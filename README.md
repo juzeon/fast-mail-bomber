@@ -15,7 +15,7 @@ Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming t
 
 ## Requirements
 
-- PHP >= 7.1
+- PHP >= 7.2
 - cURL extension support
 
 ## Features
