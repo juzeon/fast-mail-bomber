@@ -11,6 +11,10 @@ define('USE_NODES_COUNT',5000);
 // 轰炸时HTTP最大并发连接数，确保数值适合您的网络环境
 define('CONCURRENCY',50);
 
+// The size of thread pool when executing update-nodes
+// 执行 update-nodes 命令时的线程池大小
+define('THREAD_POOL_SIZE',20);
+
 // (Optional) The Shodan api key to use when updating providers. Shodan provides free api access for the first 100 results: https://account.shodan.io/
 // （可选）Shodan api key，在更新提供者的时候用。申请地址：https://account.shodan.io/
 define('SHODAN_API_KEY','');

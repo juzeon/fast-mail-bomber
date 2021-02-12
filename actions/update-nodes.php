@@ -76,7 +76,7 @@ foreach ($usingProviders as $listinfoUrl){
     };
 }
 $pool=new \GuzzleHttp\Pool($guzzle,$promises,[
-    'concurrency'=>20,
+    'concurrency'=>THREAD_POOL_SIZE,
     'rejected'=>function($reason,$index) use ($usingProviders,&$deadProviders){
         $deadProviders[]=$usingProviders[$index];
         file_put_contents(DEAD_PROVIDERS_JSON,pretty_json_encode($deadProviders));
