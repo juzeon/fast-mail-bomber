@@ -60,9 +60,12 @@ php index.php import-providers <filepath>
 
 Duplicate providers will be automatically removed.
 
-### 2. (Optional) Updating Nodes from the existing provider list
+### 2. (Recommand) Updating Nodes from the existing provider list
 
 ```bash
+# Optional. Due to various factors of different network environments, the built-in nodes may not work in your environment. So it's a good idea to delete these nodes (but not data/providers.json) and execute update-nodes on your own. Depending on the speed of your network and the size of our providers list, it may take 10~30 minutes.
+rm -rf data/nodes.json data/dead_providers.json
+
 # Getting all subscription nodes that can be used for bombing from providers.
 php index.php update-nodes
 

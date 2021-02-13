@@ -66,9 +66,12 @@ php index.php import-providers <filepath>
 
 重复的提供者会被自动移除。
 
-### 2. （可选）从提供者列表更新接口节点
+### 2. （建议）从提供者列表更新接口节点
 
 ```bash
+# 可选。由于网络环境的不同，本项目内置的接口节点可能在您的环境中无法使用。因此您最好删除这些节点（但不要删除data/providers.json），然后自行运行update-nodes。根据您的网络环境和提供者列表的大小，操作需要10~30分钟不等。
+rm -rf data/nodes.json data/dead_providers.json
+
 # 更新所有的接口节点
 php index.php update-nodes
 
