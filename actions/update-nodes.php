@@ -29,8 +29,8 @@ foreach ($usingProviders as $listinfoUrl){
         $promise->then(function ($resp) use ($guzzle, &$nodes, $listinfoUrl, &$deadProviders, &$totalAdded){
             $html = $resp->getBody();
             println('Hit ' . $listinfoUrl);
-            preg_match_all('/href="listinfo\/(.*?)"/', $html, $m);
-            if (empty($m[1])) {
+            preg_match_all('/href="(\.\.\/)*listinfo\/(.*?)"/', $html, $m);
+            if (empty($m[2])) {
                 if (PRESERVE_EMPTY_PROVIDERS) {
                     println('Provider ' . $listinfoUrl . ' returned an empty list. Preserved according to config.');
                 } else {
@@ -40,7 +40,7 @@ foreach ($usingProviders as $listinfoUrl){
                 }
                 return;
             }
-            $testUrl = substr($listinfoUrl, 0, strlen($listinfoUrl) - 8) . 'subscribe/' . $m[1][0] . '?language=en';
+            $testUrl = substr($listinfoUrl, 0, strlen($listinfoUrl) - 8) . 'subscribe/' . $m[2][0] . '?language=en';
             $promise2=$guzzle->getAsync($testUrl);
             $promise2->then(function ($resp2) use ($guzzle, &$nodes, $listinfoUrl, &$deadProviders, $m, &$totalAdded, $testUrl) {
                 $testHtml = $resp2->getBody();
@@ -55,9 +55,14 @@ foreach ($usingProviders as $listinfoUrl){
                     file_put_contents(DEAD_PROVIDERS_JSON, pretty_json_encode($deadProviders));
                     println('Provider ' . $listinfoUrl . ' forces a captcha. Skipped & Added to dead list.');
                     return;
+                }else if(intval($resp2->getStatusCode()/100)!=2){
+                    $deadProviders[] = $listinfoUrl;
+                    file_put_contents(DEAD_PROVIDERS_JSON, pretty_json_encode($deadProviders));
+                    println('Provider ' . $listinfoUrl . ' test failed. Skipped & Added to dead list.');
+                    return;
                 }
                 $singleAdded = 0;
-                foreach ($m[1] as $item) {
+                foreach ($m[2] as $item) {
                     $url = substr($listinfoUrl, 0, strlen($listinfoUrl) - 8) . 'subscribe/' . $item;
                     if (!in_array($url, $nodes)) {
                         //println('Added node '.$url);
