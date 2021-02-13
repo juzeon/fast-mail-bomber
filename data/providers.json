@@ -3755,5 +3755,11 @@
     "http://borderlinevbc.org/mailman/listinfo",
     "http://www.borderlinevbc.org/mailman/listinfo",
     "http://lists.balug.org/cgi-bin/mailman/listinfo",
-    "http://willie-d.control-h.org/cgi-bin/mailman/listinfo"
+    "http://willie-d.control-h.org/cgi-bin/mailman/listinfo",
+    "http://mainldp.cs.brynmawr.edu/cgi-bin/mailman/listinfo",
+    "http://mailman.whoi.edu/mailman/listinfo",
+    "http://lists.frenetic-lang.org/mailman/listinfo",
+    "http://lists.schafkopffreunde-neuburg.de/mailman/listinfo",
+    "http://lists.sempervigilans.org/mailman/listinfo",
+    "http://lists.sempervigilans.org/cgi-bin/mailman/listinfo"
 ]
