@@ -2725,5 +2725,13 @@
     "http://www.amsat.org/mailman/listinfo",
     "http://lists.tacticaltech.org/mailman/listinfo",
     "http://mailman.herenstraat.nl/cgi-bin/mailman/listinfo",
-    "http://lists.cmnog.cm/mailman/listinfo"
+    "http://lists.cmnog.cm/mailman/listinfo",
+    "http://148.251.180.140/cgi-bin/mailman/listinfo",
+    "http://lists.pongonova.org/mailman/listinfo",
+    "http://172.105.25.122/mailman/listinfo",
+    "http://list.zetnet.co.uk/mailman/listinfo",
+    "http://lists.emacsconf.org/mailman/listinfo",
+    "http://mailman.gottlos.org/mailman/listinfo",
+    "http://lists.alioth.debian.org/cgi-bin/mailman/listinfo",
+    "http://thamamnue01.consinto.com/mailman/listinfo"
 ]
