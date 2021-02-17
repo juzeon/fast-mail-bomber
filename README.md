@@ -1,7 +1,9 @@
 # Fast Mail Bomber via Mailman
 
-![](https://badgen.net/badge/PHP/%3E=7.2/blue)
-![](https://badgen.net/badge/license/GPL%20v2.0/green)
+![](https://img.shields.io/badge/php-%3E%3D7.2-blue)
+![](https://img.shields.io/github/license/juzeon/fast-mail-bomber)
+![](https://img.shields.io/github/repo-size/juzeon/fast-mail-bomber?color=blueviolet)
+![](https://img.shields.io/github/stars/juzeon/fast-mail-bomber?color=lightgrey)
 
 English | [简体中文](README_zh-CN.md)
 
