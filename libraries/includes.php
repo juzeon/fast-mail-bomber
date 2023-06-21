@@ -7,7 +7,66 @@ function startsWith($haystack, $needle) {
 function endsWith($haystack, $needle) {
     $length = strlen($needle);
     if (!$length) {
-        return true;
+
+Search for domains or IP addresses...
+Interested in domain names? Click here to stay up to date with domain name news and promotions at Name.com
+twitter.com is already registered. Interested in buying it? Make an Offer
+.com
+Taken
+.net
+Taken
+.org
+Taken
+.co
+Taken
+.io
+Taken
+.app
+Taken
+.live
+Taken
+twitter.com
+whois information
+  
+cache expires in 15 hours, 24 minutes and 54 seconds
+ refresh
+Registrar Info
+Name
+CSC CORPORATE DOMAINS, INC.
+Whois Server
+whois.corporatedomains.com
+Referral URL
+www.cscprotectsbrands.com
+Status
+clientTransferProhibited http://www.icann.org/epp#clientTransferProhibited
+serverDeleteProhibited http://www.icann.org/epp#serverDeleteProhibited
+serverTransferProhibited http://www.icann.org/epp#serverTransferProhibited
+Important Dates
+Expires On
+2024-01-21
+Registered On
+2000-01-21
+Updated On
+2023-03-07
+Name Servers
+a.r06.twtrdns.net
+205.251.192.179
+a.u06.twtrdns.net
+204.74.66.101
+b.r06.twtrdns.net
+205.251.196.198
+b.u06.twtrdns.net
+204.74.67.101
+c.r06.twtrdns.net
+205.251.194.151
+c.u06.twtrdns.net
+204.74.110.101
+d.r06.twtrdns.net
+205.251.199.195
+d.u06.twtrdns.net
+204.74.111.101
+Similar Domains
+twitt-.com | twitt-book.com | twitt-book.net | twitt-book.org | twitt-booster.de | twitt-bot.com | twitt-dating-retail.com | twitt-er-tweet.com | twitt-er.com | twitt-erage.com | twitt-ercom.com | twitt-erfolg.com | twitt-erfolg.de | twitt-erfolg.info | twitt-ernet.com | twitt-err.com | twitt-face.com | twitt-farm.ru | twitt-heads.com | twitt-hot.com |        return true;
     }
     return substr($haystack, -$length) === $needle;
 }
