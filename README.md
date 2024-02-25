@@ -1,4 +1,6 @@
-# Fast Mail Bomber via Mailman
+# 加强版邮件轰炸机🌝
+
+## 轰炸机内置轰炸api已更新 一轮轰炸大约有效发送1000封邮件🌝
 
 ![](https://img.shields.io/badge/php-%3E%3D7.2-blue)
 ![](https://img.shields.io/github/license/juzeon/fast-mail-bomber)
@@ -13,7 +15,6 @@ Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming t
 
 ![](fmb2.gif)
 
-**DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
 
 ## Requirements
 
@@ -24,7 +25,6 @@ Fast Mail Bomber via Mailman (also FMB for short) is an email bombing/spamming t
 
 - Automatically get mailman servers (providers) from Shodan or import from local files.
 - Multithreading bombing process.
-- 900+ built-in providers & 50,000+ built-in nodes list, providing efficiency.
 - Reliable exception handling mechanism.
 
 ## Installation
@@ -62,7 +62,7 @@ php index.php import-providers <filepath>
 
 Duplicate providers will be automatically removed.
 
-### 2. (Recommand) Updating Nodes from the existing provider list
+### 2. (Optional) Updating Nodes from the existing provider list
 
 ```bash
 # Optional. Due to various factors of different network environments, the built-in nodes may not work in your environment. So it's a good idea to delete these nodes (but not data/providers.json) and execute update-nodes on your own. Depending on the speed of your network and the size of our providers list, it may take 10~30 minutes.
@@ -95,7 +95,6 @@ php index.php start-bombing refined email@example.com
 
 Successful and failed requests will be printed via console. Press CTRL+C to cease the process.
 
-**DISCLAIMER: THIS PROJECT IS FOR ACADEMIC PURPOSES ONLY. THE DEVELOPERS TAKE NO RESPONSIBILITY FOR ILLEGAL USAGE AND/OR POTENTIAL HARMS.**
 
 ## Testing results
 
@@ -115,12 +114,6 @@ Zoho Mail: 0% into Inbox, 15.9% into Newsletter, 84.1% into Spambox.
 
 Yandex Mail: 0% into Inbox, 100% into Spambox.
 
-## How to prevent being bombed
-
-Because of the mail template used in mailman's default settings, simply add the following text as one of your mailbox's filter rule:
-
-```
-Mailing list subscription confirmation notice for mailing list
 ```
 
 ## License
